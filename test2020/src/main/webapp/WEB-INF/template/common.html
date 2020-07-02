@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="meta">
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+</th:block>
+<th:block th:fragment="layuicss">
+    <link rel="stylesheet" href="/js/lib/layuicms/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="/js/lib/layuicms/css/public.css" media="all" />
+</th:block>
+<th:block th:fragment="common_link">
+    <th:block th:replace="::layuicss" />
+    <th:block th:replace="${links}" />
+</th:block>
+<head th:fragment="common_header(title,links)">
+    <title th:replace="${title}">The awesome application</title>
+    <th:block th:replace="::meta" />
+    <th:block th:replace="::common_link" />
+</head>
+
+<th:block th:fragment="layuijs">
+    <script type="text/javascript" src="/js/lib/layuicms/layui/layui.js"></script>
+</th:block>
+<th:block th:fragment="common_js(scripts)">
+    <script type="text/javascript" src="/js/lib/jquery/jquery.min.js"></script>
+    <th:block th:replace="::layuijs" /> <!-- 引用本页面的script -->
+    <script type="text/javascript" src="/js/common.js"></script>
+    <th:block th:replace="${scripts}" /> <!-- 外部script占位符 -->
+</th:block>
+</html>

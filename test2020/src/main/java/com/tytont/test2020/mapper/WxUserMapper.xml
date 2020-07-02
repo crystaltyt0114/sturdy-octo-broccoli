@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tytont.test2020.dao.WxUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.tytont.test2020.model.WxUser">
+        <id column="id" property="id" />
+        <result column="openid" property="openid" />
+        <result column="nickname" property="nickname" />
+        <result column="create_time" property="createTime" />
+        <result column="follow_status" property="followStatus" />
+        <result column="remark" property="remark" />
+        <result column="inspid" property="inspid" />
+        <result column="bind_status" property="bindStatus" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, openid, nickname, create_time, follow_status, remark, inspid, bind_status
+    </sql>
+
+</mapper>

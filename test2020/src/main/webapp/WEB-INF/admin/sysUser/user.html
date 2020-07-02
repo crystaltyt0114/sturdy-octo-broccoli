@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template/common::common_header(~{::title},~{::link})">
+<title>用户添加或编辑</title>
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body class="childrenBody">
+	<form class="layui-form" style="width:80%;" id="form">
+	    <input type="hidden" id="hid_uid" name="uid" th:value="${sysUser?.uid}" />
+		<div class="layui-form-item layui-row layui-col-xs12">
+			<label class="layui-form-label">用户名</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input" lay-verify="required"
+				    placeholder="请输入用户名" name="username" th:value="${sysUser?.username}">
+			</div>
+		</div>
+		<div class="layui-form-item layui-row layui-col-xs12">
+			<label class="layui-form-label">真实名</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input" lay-verify="required" 
+				    placeholder="请输入真实名" name="realname" th:value="${sysUser?.realname}">
+			</div>
+		</div>
+		<div class="layui-form-item layui-row layui-col-xs12">
+			<label class="layui-form-label">密码</label>
+			<div class="layui-input-block">
+				<input type="password" class="layui-input" lay-verify="required" 
+				    placeholder="请输入密码" name="password" >
+			</div>
+		</div>
+		<div class="layui-form-item layui-row layui-col-xs12">
+			<label class="layui-form-label">备注</label>
+			<div class="layui-input-block">
+				<textarea class="layui-textarea" name="remark" th:text="${sysUser?.remark}"></textarea>
+			</div>
+		</div>
+		<div class="layui-form-item layui-row layui-col-xs12">
+			<div class="layui-input-block">
+				<button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="createOrUpdateUser" 
+				    th:text="${sysUser!=null?'立即修改':'立即添加'}"></button>
+				<button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">重置</button>
+			</div>
+		</div>
+	</form>
+	<th:block th:replace="template/common::common_js(~{::script})">
+		<script type="text/javascript" src="/js/admin/sysUser/user.js"></script>
+	</th:block>
+</body>
+</html>
